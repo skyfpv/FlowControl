@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from controllers import helloController
+from controllers import users
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 
-api.add_resource(helloController.HelloController, '/api/hello')
+api.add_resource(users.Users, '/api/v1/users')
 
 if __name__ == '__main__':
     app.run(debug=True)
